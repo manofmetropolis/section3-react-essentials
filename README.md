@@ -13,3 +13,5 @@ From beginning to end, creating a React project using essentials like Components
 - Split up complex UIs into smaller, reusable, easier to manage parts. Really helpful to be able to make a change in one place and have it apply in multiple places.
 - Related code can be stored closely together.
 - Vastly simplifies the process and separates concerns. This is crucial to good code.
+
+* Whenever you want to start coding and seeing it like, hit npm run dev.
