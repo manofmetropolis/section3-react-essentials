@@ -1,25 +1,6 @@
+import { CORE_CONCEPTS } from "./data";
 import Header from "./components/header";
-import { CORE_CONCEPTS } from "./data"; // use curly braces for a named export
-
-// function CoreConcept(props) {
-//   return (
-//     <li>
-//       <img src={props.image} alt={props.title} />
-//       <h3>{props.title}</h3>
-//       <p>{props.description}</p>
-//     </li>
-//   )
-// }
-
-function CoreConcept({image, title, description}) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  )
-}
+import CoreConcept from "./components/CoreConcept";
 
 function App() {
   return (
