@@ -1,4 +1,6 @@
 // function CoreConcept(props) {
+import './CoreConcept.css';
+
 //   return (
 //     <li>
 //       <img src={props.image} alt={props.title} />
