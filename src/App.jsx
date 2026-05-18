@@ -21,19 +21,21 @@ function App() {
     console.log(selectedTopic); // If you log right after scheduling update, it won't appear correctly.
   }
 
+  // Set tabContent dynamically
   let tabContent = <p>Please select a topic</p>;
 
   if (selectedTopic) {
     tabContent = (
       <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-              </pre>
-            </div>
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
     )
   }
+  // End set tabContent dynamically
 
   return (
     <div>
@@ -52,12 +54,28 @@ function App() {
           <h2>Examples</h2>
           <menu>
             {/* Create a function for what happens when the button is clicked */}
-            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onSelect={() => handleSelect('components')}>
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onSelect={() => handleSelect('jsx')}>
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onSelect={() => handleSelect('props')}>
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onSelect={() => handleSelect('state')}>
+              State
+            </TabButton>
           </menu>
-        {tabContent}
+          {tabContent}
         </section>
       </main>
     </div>
