@@ -1,4 +1,4 @@
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS, EXAMPLES } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept/CoreConcept";
 import TabButton from "./components/Example/TabButton";
@@ -10,7 +10,7 @@ function App() {
   // The second value is a function that is exeucted to update the state. It also tells React to do the function again.
   // You can store to a variable; And the variable can be const, because it is recreated every time, not "changed."
 
-  const [selectedTopic, setSelectedTopic] = useState('Please click a button',);
+  const [selectedTopic, setSelectedTopic] = useState();
   // let tabContent = 'Click a button';
 
   // Use a function for the value of onClick.
@@ -18,7 +18,21 @@ function App() {
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'jsx', 'props', 'state'
     setSelectedTopic(selectedButton);
-    console.log(selectedTopic);
+    console.log(selectedTopic); // If you log right after scheduling update, it won't appear correctly.
+  }
+
+  let tabContent = <p>Please select a topic</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+    )
   }
 
   return (
@@ -43,7 +57,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {selectedTopic}
+        {tabContent}
         </section>
       </main>
     </div>

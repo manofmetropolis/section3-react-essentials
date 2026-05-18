@@ -39,3 +39,9 @@ We can target the different properites of the incoming object by name.
 # Reacting to Events
 - Don't interact with the DOM directly. Let React do it.
 - For the button at least: Add an onClick prop (works on lots of different things, though.)
+
+# React needs to be told to reevaluate whether to execute functions again.
+- Updating with a regular variable doesn't work.
+- If you want something to change, you gots to use state.
+- I had trouble with state last time.
+- A function, provided by React, called useState, must be imported and called inside of React functions.
